@@ -1,0 +1,67 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+struct Player{ 
+ int JersyNo;
+// int runs,hundreds,wickets,matches_played;
+ char PlayerName[100],Designation[100];
+};
+
+void addp(struct Player*,int*);
+void displayp(struct Player*,int*);
+//void editp(struct Player*,int *);
+//void deletep(struct Player*,int *);
+
+void main()
+{   
+    int n,ch;
+//    struct Player *p;
+    
+	printf("======================= Player_details_Project =========================\n");
+    printf("\n\t\tEnter the Team Stenghth\n\t\t");
+    scanf("%d",&n);
+    
+//    p=(struct Player*)malloc(sizeof(struct Player)*n);
+     struct Player p[n];
+	
+		printf("\n\t\t To Add Player Press :: 1 \n\t\t To print the  details of Players Press :: 2 \n\t\t To Edit Player Press :: 3  \n\t\t To Remove Player Press :: 4\n\t\t ");
+        scanf("%d",&ch);
+        if(ch==1)
+        addp(p,&n);
+        else if(ch==2)
+        displayp(p,&n);
+//        else if(ch==3)
+//        editp(p,&n);
+//        else if (ch==4)
+//        deletep(p,&n);
+        else
+        printf("\n\t\t enter valid choice");
+}
+
+ void addp(struct Player *p,int *num){
+    int i,a;
+    a=*num;
+    for(i=0;i<a;i++){
+    printf("-------------------------------------------------------------------------");
+    printf("\n\t\tEnter player %d jersy number\n\t\t",i+1);
+    scanf("%d",&p[i].JersyNo);
+    printf("\n\t\tEnter Player %d Name\n\t\t",i+1);
+    scanf("%s",&p[i].PlayerName);
+    printf("\n\t\tEnter player %d Designation\n\t\t",i+1);
+    scanf("%s",&p[i].Designation);
+    p++;
+    }
+	}
+
+ void displayp(struct Player *p,int *num)
+ {
+ 	int i,a;
+ 	a=*num;
+ 	printf("=======================================================================================================\n");
+   	printf("    Player Name \t Jersy_No \t Designation \t\n");
+   	printf("=======================================================================================================\n");
+	for(i=0;i<a;i++)
+    printf("     %s \t\t %d \t\t   %s \t \n",p[i].PlayerName,p[i].JersyNo,p[i].Designation);
+ }
+    	
